@@ -14,17 +14,17 @@ namespace dad
 {
     public class Program
     {
-        //readonly string domain = "mg.brash.io/";
-        //readonly string toAddress = "elad19892012@gmail.com";
+        //readonly string domain = "YOUR_DOMAIN";
+        //readonly string toAddress = "YOUR_EMAIL";
         //readonly string subject = "testing one testing..";
         //readonly string text = "Hello everybody";
-        //readonly string from = "https://mailgun@mg.brash.io";
+        //readonly string from = "YOUR_DOMAIN";
         //readonly HttpClient client = new HttpClient();
 
         public static async Task Main(string[] args)
         {
             string mailKey = "API_KEY";
-            string con = "/v3/mg.brash.io/messages";
+            string con = "/v3/YOUR_DOMAIN/messages";
 
             Console.WriteLine("Please enter your Email:");
             string email = Console.ReadLine();
@@ -50,7 +50,7 @@ namespace dad
                         Convert.ToBase64String(Encoding.ASCII.GetBytes($"api:{_mailKey}")));
 
                     var content = new FormUrlEncodedContent(new[] {
-                      new KeyValuePair<string, string>("from", "<mailgun@mg.brash.io>"),
+                      new KeyValuePair<string, string>("from", "<mailgun@YOUR_DOMAIN>"),
                       new KeyValuePair<string, string>("to", _email),
                       new KeyValuePair<string, string>("subject", "Dad Joke"),
                       new KeyValuePair<string, string>("text", _j)
